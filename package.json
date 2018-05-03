@@ -21,7 +21,5 @@
     "url": "https://github.com/SamyBencherif/HPC-webforms/issues"
   },
   "homepage": "https://github.com/SamyBencherif/HPC-webforms#readme",
-  "dependencies": {
-    "jquery": "^3.3.1"
-  }
+  "dependencies": {}
 }
