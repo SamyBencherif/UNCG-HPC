@@ -1,0 +1,27 @@
+{
+  "name": "hpc-webforms",
+  "version": "1.0.0",
+  "description": "generated needed scripts for use of HPC's",
+  "main": "index.js",
+  "scripts": {
+    "test": "ws"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamyBencherif/HPC-webforms.git"
+  },
+  "keywords": [
+    "HPC",
+    "NCSU",
+    "UNCCH"
+  ],
+  "author": "Samy Bencherif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamyBencherif/HPC-webforms/issues"
+  },
+  "homepage": "https://github.com/SamyBencherif/HPC-webforms#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
