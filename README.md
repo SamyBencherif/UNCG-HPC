@@ -11,5 +11,4 @@ Visit the live page here: https://samybencherif.github.io/HPC-webforms/
 
 ### I want to contribute
 
-If you would like to contribute please first read the wiki, then make a pull request:
-https://github.com/SamyBencherif/HPC-webforms/wiki
+If you would like to contribute please first [read the wiki](https://github.com/SamyBencherif/HPC-webforms/wiki), then make a pull request.
