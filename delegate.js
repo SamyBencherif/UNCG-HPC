@@ -65,7 +65,7 @@ function verifyParams(ev) {
 		buttons: [{
 			text: "Download Script",
 			click: function () {
-				console.log(getHenryLFS(options));
+				getHenryLFS(options);
 				$(this).dialog("close");
 			}
 		}]
