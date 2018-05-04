@@ -65,7 +65,7 @@ function verifyParams(ev) {
 		buttons: [{
 			text: "Download Script",
 			click: function () {
-				getHenryLFS(options);
+				getHenryLFS(options); //this function is defined in scriptgen.js
 				$(this).dialog("close");
 			}
 		}]
