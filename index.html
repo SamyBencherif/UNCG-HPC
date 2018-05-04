@@ -23,13 +23,15 @@
 
 	<h1>HPC Config Script Gen</h1>
 
+	only generates Henry2 script atm and only generates for python jobs
+
 	<h3>Resources</h3>
 
 	<label>cluster</label>
 	<select id="" name="clusterName">
 		<option selected>Henry2 -- NCSU</option>
-		<option>KillDevil -- UNCCH</option>
 		<option>Longleaf -- UNCCH</option>
+		<option disabled>KillDevil -- UNCCH (decomissioned)</option>
 	</select>
 	<br>
 	<br>
@@ -82,6 +84,14 @@
 
 	<label>path to executable</label>
 	<input id="script" value="./proj1/code/test.py">
+	<br>
+	<br>
+
+	<label>type</label>
+	<select id="" name="">
+		<option selected>Python 2.7.13</option>
+		<option>C</option>
+	</select>
 	<br>
 	<br>
 
