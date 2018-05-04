@@ -28,7 +28,7 @@
 	<h3>Resources</h3>
 
 	<label>cluster</label>
-	<select id="" name="clusterName">
+	<select id="cluster" name="clusterName">
 		<option selected>Henry2 -- NCSU</option>
 		<option>Longleaf -- UNCCH</option>
 		<option disabled>KillDevil -- UNCCH (decomissioned)</option>
@@ -36,13 +36,13 @@
 	<br>
 	<br>
 
-	<label>number of processors: </label>
+	<label>number of processors</label>
 	<input id="coreNum" type="number" value="2" min="1" max="10000" step="1">
 	<br>
 	<br>
 
 
-	<label>memory per core: </label>
+	<label>memory per core</label>
 	<input id="memSize" type="number" value="10" min="1" max="10000">
 	<select name="memorySize" id="memUnit">
 		<option>MB</option>
@@ -78,11 +78,13 @@
 
 	<label>error out</label>
 	<input id="stderr" value="./proj1/log/err.%J">
+	<span style="color:red;" id="stderrLongleafHint" hidden>
+		&lt;-- Longleaf outputs errors through standard output by default.</span>
 	<br>
 
 	<h3>Process</h3>
 
-	<label>path to executable</label>
+	<label>path to program</label>
 	<input id="script" value="./proj1/code/test.py">
 	<br>
 	<br>
