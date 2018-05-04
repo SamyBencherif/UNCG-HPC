@@ -8,45 +8,50 @@ function getHenryLFS(options) {
 	}
 
 
-	script += `#BSUB -R "rusage[mem=${options.memSizeMB}]  span[hosts=1]"		#Memory per core requested ${convert(options.memSize, options.memUnit, 'MB')} mb\n`
+	script += `#BSUB -R "rusage[mem=${options.memSizeMB}]  span[hosts=1]"		#Memory per core requested ${options.memSizeMB} mb\n`
 	script += `source /usr/local/apps/python/python2713.csh\n`
 	script += `#BSUB -o ${options.stdout}						#output file location\n`
 	script += `#BSUB -e ${options.stderr}						#error file location\n`
-	script += `${options.script}							#code to run`
+	script += `${options.exe}							#code to run`
 
 	// return script;
 	download("run.sh", script);
 
 }
 
+function reverse(k) {
+	o = "";
+	for (var i = k.length - 1; i > 0; i--)
+		o += k[i]
+	return o;
+}
+
+function getFileName(path) {
+	var sep = reverse(path).indexOf('/');
+	var dot = reverse(path).indexOf('.');
+
+	return path.substring(sep == -1 ? 0 : path.length - sep, dot == -1 ? path.length : path.length - dot - 1);
+}
+
 function getCHSlurm(options) {
-	/*
-	#!/bin/bash
-	#SBATCH --job-name=first_slurm_job //does henry need job names?
-	#SBATCH --ntasks=CPU_Count
-	#SBATCH --time=Wall_Minutes
-	#SBATCH --mem=MB_Per_Core
 
-	python <your python code>
-	*/
+	var filename = getFileName(options.exe);
+	alert(filename);
 
-	//export-file=<filename | fd>
+	var script = "";
 
-	//SLURM reference https://slurm.schedmd.com/sbatch.html
 
-	/*
-	-o, --output=<filename pattern>
-	Instruct Slurm to connect the batch script's standard output directly to the file name specified in the
-	"filename pattern". By default both standard output and standard error are directed to the same file.
-	For job arrays, the default file name is "slurm-%A_%a.out", "%A" is replaced by the job ID and "%a" with
-	the array index. For other jobs, the default file name is "slurm-%j.out", where the "%j" is replaced by the
-	job ID. See the filename pattern section below for filename specification options.
-	*/
+	script += `#!/bin/bash\n`
+	//by default, the job name is based on the no-ext filename of the script
+	script += `#SBATCH --job-name=${filename}_slurm_job\n`
+	script += `#SBATCH --ntasks=${options.coreNum}\n`
+	script += `#SBATCH --time=${options.WallTimeMin}\n`
+	script += `#SBATCH --mem=${options.memSizeMB}\n`
+	script += `#SBATCH --output=${options.stdout}\n`
 
-	/* Notes
-	- stdout/stderr go to the same file
-	- what is a job array and do I need to support it?
-	*/
+	script += `python ${options.exe}`
+
+	console.log(script);
 }
 
 //thank you https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
