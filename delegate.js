@@ -40,14 +40,11 @@ function convert(val, unitA, unitB) {
 function verifyParams(ev) {
 
 	var options = {
-		coreNum: $('#coreNum').val(),
-		memSize: $('#memSize').val(),
-		memUnit: $('#memUnit').val(),
+		coreNum: ~~$('#coreNum').val(),
+		memSizeMB: ~~convert($('#memSize').val(), $('#memUnit').val(), 'MB'),
 
 		useWallTime: $('#useWallTime').prop('checked'),
-		WallTime: $('#WallTime').val(),
-
-		WallTimeUnit: $('#WallTimeUnit').val(),
+		WallTimeMin: ~~convert($('#WallTime').val(), $('#WallTimeUnit').val(), 'minutes'),
 
 		stdout: $('#stdout').val(),
 		stderr: $('#stderr').val(),
@@ -55,10 +52,10 @@ function verifyParams(ev) {
 	}
 
 	$('#verifyDialog').html(`<br> number of cores: ${options.coreNum} <br><br>
-	memory per core: ${convert(options.memSize, options.memUnit, 'MB')} MB <br><br>
-	total memory: ${convert(options.coreNum*options.memSize, options.memUnit, 'MB')} MB <br><br>
+	memory per core: ${options.memSizeMB} MB <br><br>
+	total memory: ${options.coreNum*options.memSizeMB} MB <br><br>
 	limit job duration: ${options.useWallTime} <br><br>
-	job limit: ${options.useWallTime ? convert(options.WallTime, options.WallTimeUnit, 'minutes') + " minutes" : 'N/A'} <br><br>
+	job limit: ${options.useWallTime ? options.WallTimeMin + " minutes" : 'N/A'} <br><br>
 	standard out: ${options.stdout} <br><br>
 	standard err: ${options.stderr} <br><br>
 	path to script: ${options.script} <br><br>
