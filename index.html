@@ -21,7 +21,7 @@
 	</noscript>
 
 
-	<h1>Henry 2 LFS Script Gen</h1>
+	<h1>Henry 2 LFS Script Gen (For Python Jobs)</h1>
 
 	<h3>Resources</h3>
 
@@ -46,11 +46,11 @@
 
 	<h4>It is important to set limits to prevent rogue tasks from using up resources.</h4>
 
-	<input class="toggleLimit" type="checkbox" checked>
+	<input id="useWallTime" class="toggleLimit" type="checkbox" checked>
 	<span class="limit">
 		<label>limit job duration to </label>
-		<input type="number" value="30" min="0" max="6000">
-		<select name="duration" id="WallTime">
+		<input id="WallTime" type="number" value="30" min="0" max="6000">
+		<select id="WallTimeUnit" name="duration">
 			<option selected>minutes</option>
 			<option>hours</option>
 			<option>days</option>
@@ -60,23 +60,33 @@
 
 	<h3>Output</h3>
 
-	<label>job standard out</label>
-	<input value="./proj1/log/out.%J">
+	<label>standard out</label>
+	<input id="stdout" value="./proj1/log/out.%J">
 	<br>
 	<br>
 
-	<label>job error out</label>
-	<input value="./proj1/log/err.%J">
+	<label>error out</label>
+	<input id="stderr" value="./proj1/log/err.%J">
+	<br>
+
+	<h3>Script</h3>
+
+	<label>path to script</label>
+	<input id="script" value="./proj1/code/test.py">
 	<br>
 	<br>
 
-	<button>
-		Download Script
+	<button id="verifyBtn">
+		Continue
 	</button>
 
+	<div hidden title="Please Verify" id="verifyDialog"></div>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="scriptgen.js"></script>
 	<script src="delegate.js"></script>
-	<!-- <script src="LFSGen.js"></script> -->
 </body>
 
 </html>
