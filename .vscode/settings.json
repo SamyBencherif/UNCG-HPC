@@ -18,5 +18,8 @@
 		"typescript",
 		"typescriptreact",
 		"yml"
+	],
+	"cSpell.words": [
+		"slurm"
 	]
 }
