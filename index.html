@@ -21,17 +21,28 @@
 	</noscript>
 
 
-	<h1>Henry 2 LFS Script Gen (For Python Jobs)</h1>
+	<h1>HPC Config Script Gen</h1>
+
+	only generates Henry2 script atm and only generates for python jobs
 
 	<h3>Resources</h3>
 
-	<label>number of processors: </label>
-	<input id="coreNum" type="number" value="2" min="1" max="10000">
+	<label>cluster</label>
+	<select id="cluster" name="clusterName">
+		<option selected>Henry2 -- NCSU</option>
+		<option>Longleaf -- UNCCH</option>
+		<option disabled>KillDevil -- UNCCH (decomissioned)</option>
+	</select>
+	<br>
+	<br>
+
+	<label>number of processors</label>
+	<input id="coreNum" type="number" value="2" min="1" max="10000" step="1">
 	<br>
 	<br>
 
 
-	<label>memory per core: </label>
+	<label>memory per core</label>
 	<input id="memSize" type="number" value="10" min="1" max="10000">
 	<select name="memorySize" id="memUnit">
 		<option>MB</option>
@@ -67,12 +78,21 @@
 
 	<label>error out</label>
 	<input id="stderr" value="./proj1/log/err.%J">
+	<span style="color:red;" id="stderrLongleafHint" hidden>
+		&lt;-- Longleaf outputs errors through standard output by default.</span>
 	<br>
 
-	<h3>Script</h3>
+	<h3>Process</h3>
 
-	<label>path to script</label>
+	<label>path to program</label>
 	<input id="script" value="./proj1/code/test.py">
+	<br>
+	<br>
+
+	<label>type</label>
+	<select id="" name="">
+		<option selected>Python 2.7.13</option>
+	</select>
 	<br>
 	<br>
 

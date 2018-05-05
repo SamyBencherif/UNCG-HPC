@@ -18,5 +18,9 @@
 		"typescript",
 		"typescriptreact",
 		"yml"
+	],
+	"cSpell.words": [
+		"longleaf",
+		"slurm"
 	]
 }
