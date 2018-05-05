@@ -47,6 +47,7 @@ function getCHSlurm(options) {
 	script += `#SBATCH --time=${options.WallTimeMin}\n`
 	script += `#SBATCH --mem=${options.memSizeMB}\n`
 	script += `#SBATCH --output=${options.stdout}\n`
+	script += `#SBATCH -p general\n`
 
 	script += `python ${options.exe}`
 
