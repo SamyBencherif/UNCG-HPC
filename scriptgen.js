@@ -15,7 +15,7 @@ function getHenryLFS(options) {
 	script += `${options.exe}							#code to run`
 
 	// return script;
-	download("run.sh", script);
+	download("henry2-config.sh", script);
 
 }
 
@@ -36,7 +36,6 @@ function getFileName(path) {
 function getCHSlurm(options) {
 
 	var filename = getFileName(options.exe);
-	alert(filename);
 
 	var script = "";
 
@@ -51,7 +50,7 @@ function getCHSlurm(options) {
 
 	script += `python ${options.exe}`
 
-	console.log(script);
+	download("longleaf-config.sh", script);
 }
 
 //thank you https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
