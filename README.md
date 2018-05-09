@@ -2,7 +2,7 @@
 
 This is an applet that generates configuration scripts for use in High Performance Computing applications. 
 
-Visit the live page here: https://samybencherif.github.io/HPC-webforms/
+Visit the live page here: https://samybencherif.github.io/UNCG-HPC/
 
 ### Bug Reports / Feature Requests
 
