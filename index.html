@@ -69,13 +69,15 @@
 
 	<h3>Output</h3>
 
+	<p id="stdoutJobIDHint">%J is replaced with the job ID.</p>
+
 	<label>standard out</label>
-	<input id="stdout" value="./proj1/log/out.%J">
+	<input id="stdout" value="./log/out.%J">
 	<br>
 	<br>
 
 	<label>error out</label>
-	<input id="stderr" value="./proj1/log/err.%J">
+	<input id="stderr" value="./log/err.%J">
 	<span style="color:red;" id="stderrLongleafHint" hidden>
 		&lt;-- Longleaf outputs errors through standard output by default.</span>
 	<br>
@@ -83,7 +85,7 @@
 	<h3>Process</h3>
 
 	<label>path to program</label>
-	<input id="script" value="./proj1/code/test.py">
+	<input id="script" value="./code/test.py">
 	<br>
 	<br>
 

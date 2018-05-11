@@ -9,10 +9,10 @@ function getHenryLFS(options) {
 
 
 	script += `#BSUB -R "rusage[mem=${options.memSizeMB}]  span[hosts=1]"		#Memory per core requested ${options.memSizeMB} mb\n`
-	script += `source /usr/local/apps/python/python2713.csh\n`
+	script += `source /usr/local/apps/python/python2713.csh						#make python2.7.13 available as "python"\n`
 	script += `#BSUB -o ${options.stdout}						#output file location\n`
 	script += `#BSUB -e ${options.stderr}						#error file location\n`
-	script += `${options.exe}							#code to run`
+	script += `python ${options.exe}							#code to run`
 
 	// return script;
 	download("henry2-config.sh", script);
