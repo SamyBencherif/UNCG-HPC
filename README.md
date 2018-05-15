@@ -1,4 +1,4 @@
-# HPC-webforms
+# UNCG-HPC
 
 This is an applet that generates configuration scripts for use in High Performance Computing applications. 
 
