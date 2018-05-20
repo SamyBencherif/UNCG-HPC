@@ -1,0 +1,77 @@
+This is a list of the 72 general field of study categories (including the unlabeled category).
+
+The unlabeled category includes all the papers that had an empty string or whitespace in the 
+fos column of the relational database.
+-----------------------------------------------------------------------------------------------
+ 0. **unlabeled**
+ 1. film
+ 2. broadcast
+ 3. protected_sites
+ 4. meteorology
+ 5. cvg
+ 6. soccer
+ 7. internet
+ 8. medicine
+ 9. geology
+10. award
+11. common
+12. distilled_spirits
+13. venture_capital
+14. chemistry
+15. tv
+16. book
+17. transportation
+18. music
+19. theater
+20. commerce
+21. biology
+22. architecture
+23. law
+24. ved/biology
+25. symbols
+26. people
+27. exhibitions
+28. physics
+29. amusement_parks
+30. finance
+31. comic_books
+32. games
+33. sports
+34. religion
+35. fashion
+36. engineering
+37. astronomy
+38. travel
+39. military
+40. spaceflight
+41. automotive
+42. statistics
+43. fictional_universe
+44. american_football
+45. comic_strips
+46. computer
+47. food
+48. language
+49. location
+50. education
+51. organization
+52. aviation
+53. event
+54. metropolitan_transit
+55. business
+56. royalty
+57. boats
+58. olympics
+59. local
+60. time
+61. cricket
+62. measurement_unit
+63. radio
+64. interests
+65. government
+66. geography
+67. visual_art
+68. conferences
+69. projects
+70. media_common
+71. baseball
