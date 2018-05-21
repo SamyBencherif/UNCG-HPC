@@ -1,6 +1,7 @@
 import unittest
 import time
 import sys
+import os
 
 def integerRepresentation(x):
     """
@@ -13,7 +14,7 @@ def integerRepresentation(x):
     return True
 
 
-# Thanks to Sridhar Ratnakumar from StackOverflow for this function 
+# Thanks to Sridhar Ratnakumar from StackOverflow for this function
 def sizeof_fmt(num, suffix='B'):
     for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
         if abs(num) < 1024.0:
@@ -36,23 +37,23 @@ class Papers(unittest.TestCase):
 
         filepath = 'data/Papers.txt'
         papers = open(filepath)
-        
+
         if self.memLimit == None:
-            memLimit = os.stat(filepath).st_size    
+            memLimit = os.stat(filepath).st_size
         else:
             memLimit = self.memLimit
 
         cleanCount = 0
         counter = 0
-        
+
         markedProgress = 0
         memRead = 0
 
         startTime = time.time()
-        
+
         print("Progress")
         print("_" * 100)
-       
+
         row = papers.readline()
 
         while row:
@@ -65,11 +66,11 @@ class Papers(unittest.TestCase):
             #if counter == 1000:
             #    print ("ETA: {0} minutes".format(total * (time.time() - startTime) / 1000.))
 
-            counter += 1 
+            counter += 1
             if memRead / memLimit - markedProgress > .01:
                 sys.stdout.write('#')
                 sys.stdout.flush()
-                markedProgress += .01 
+                markedProgress += .01
 
             if memRead >= memLimit:
                 break
@@ -81,9 +82,14 @@ class Papers(unittest.TestCase):
         print("{0} lines ({1}) read.".format(counter, sizeof_fmt(memRead)))
         print("{0}% clean".format(100 * cleanCount / counter))
 
-    def testId(self):
+    def test(self):
+        try:
+            os.stat('data/Papers.txt')
+        except:
+            print("\n\nHINT: Make sure you're working directory is the project root and that data/Papers.txt is a file you have access to.\n\n")
         self.trackedIntegerValidation('ID', 0)
         self.trackedIntegerValidation('Publication Year', 7)
+        self.trackedIntegerValidation('Journal ID', 10)
         self.trackedIntegerValidation('Citation Count', 18)
 
 if __name__ == '__main__':
