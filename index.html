@@ -1,15 +1,112 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>HPC Script Gen</title>
 </head>
 
 <body>
-	<ul>
-		<li>
-			<a href="./config-generator/index.html">Config Generator</a>
-		</li>
-	</ul>
+
+	<style>
+		body {
+			font-family: monospace;
+		}
+	</style>
+
+	<noscript>
+		<h2 style="color:red">This page requires javascript.</h2>
+	</noscript>
+
+
+	<h1>HPC Config Script Gen</h1>
+
+	<h3>Resources</h3>
+
+	<label>cluster</label>
+	<select id="cluster" name="clusterName">
+		<option selected>Henry2 -- NCSU</option>
+		<option>Longleaf -- UNCCH</option>
+		<option disabled>KillDevil -- UNCCH (decomissioned)</option>
+	</select>
+	<br>
+	<br>
+
+	<label>number of processors</label>
+	<input id="coreNum" type="number" value="2" min="1" max="10000" step="1">
+	<br>
+	<br>
+
+
+	<label>memory per core</label>
+	<input id="memSize" type="number" value="10" min="1" max="10000">
+	<select name="memorySize" id="memUnit">
+		<option>MB</option>
+		<option>GB</option>
+		<option>TB</option>
+	</select>
+
+	<!-- With JS enabled will say "Total requested memory is X." -->
+	<p id="totalMemRes"></p>
+
+	<h3>Limits</h3>
+
+	<h4>It is important to set limits to prevent rogue tasks from using up resources.</h4>
+
+	<input id="useWallTime" class="toggleLimit" type="checkbox" checked>
+	<span class="limit">
+		<label>limit job duration to </label>
+		<input id="WallTime" type="number" value="30" min="0" max="6000">
+		<select id="WallTimeUnit" name="duration">
+			<option selected>minutes</option>
+			<option>hours</option>
+			<option>days</option>
+		</select>
+	</span>
+	<br>
+
+	<h3>Output</h3>
+
+	<p id="stdoutJobIDHint">%J is replaced with the job ID.</p>
+
+	<label>standard out</label>
+	<input id="stdout" value="./log/out.%J">
+	<br>
+	<br>
+
+	<label>error out</label>
+	<input id="stderr" value="./log/err.%J">
+	<span style="color:red;" id="stderrLongleafHint" hidden>
+		&lt;-- Longleaf outputs errors through standard output by default.</span>
+	<br>
+
+	<h3>Process</h3>
+
+	<label>path to program</label>
+	<input id="script" value="./code/test.py">
+	<br>
+	<br>
+
+	<label>type</label>
+	<select id="" name="">
+		<option selected>Python 2.7.13</option>
+	</select>
+	<br>
+	<br>
+
+	<button id="verifyBtn">
+		Continue
+	</button>
+
+	<div hidden title="Please Verify" id="verifyDialog"></div>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="scriptgen.js"></script>
+	<script src="delegate.js"></script>
 </body>
 
 </html>
