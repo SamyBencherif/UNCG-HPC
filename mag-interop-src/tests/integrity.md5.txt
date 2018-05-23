@@ -1,0 +1,21 @@
+-- Affiliations.txt --
+hash: 094f1fbc9856177e51540256c263de0c
+
+-- Authors.txt --
+hash: 3db3a09ff44f0e980bfbb02cf366e122
+
+-- ConferenceInstances.txt --
+hash: 6a059e08a0c24d89d5b6a7b907f63faf
+
+-- ConferenceSeries.txt --
+hash: c4de4e7e32e64b5912bf597db2c9be3f
+
+-- FieldOfStudyChildren.txt --
+hash: 0e2ef26b95c9b8f8079ed4500805f98c
+
+-- FieldsOfStudy.txt --
+hash: 7aa10a5b4e7d8ecfa1da2110062f292f
+
+-- Journals.txt --
+hash: 876e93199b5243e8057b3c03d569c67b
+
