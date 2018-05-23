@@ -1,17 +1,13 @@
 import hashlib
 import time
 
+#Next TODO! find things in directory that are missing from this list and checksum them!
 hashProtected = """ #WHITELIST BEGINS AFTER THIS LINE
-Affiliations.txt
-Authors.txt
-ConferenceInstances.txt
-ConferenceSeries.txt
-FieldOfStudyChildren.txt
-FieldsOfStudy.txt
-Journals.txt
-PaperAuthorAffiliations.txt
-PaperCitationContexts.txt
-""".split('\n')[1:-1][-2:] #WHITELIST END
+PaperRecommendations.txt
+PaperReferences.txt
+PaperUrls.txt
+Papers.txt
+""".split('\n')[1:-1] #WHITELIST END
 
 output = open('integrity.md5.txt', 'a+t')
 

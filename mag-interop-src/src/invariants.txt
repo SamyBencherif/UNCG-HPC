@@ -1,0 +1,8 @@
+
+To ensure program correctness, the following invariants must be upheld during program run time. If any of them is violated the program will audiably fail, as an assumption about the data would be proven false.
+
+- data files are verified with md5
+
+loop invariants
+- integers are of the form /\d+/g
+- all columns of interest are accessible

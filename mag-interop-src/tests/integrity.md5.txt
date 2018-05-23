@@ -19,3 +19,15 @@ hash: 7aa10a5b4e7d8ecfa1da2110062f292f
 -- Journals.txt --
 hash: 876e93199b5243e8057b3c03d569c67b
 
+-- PaperAuthorAffiliations.txt --
+hash: fde90900ef13416eace3404918db0c8e
+
+-- PaperCitationContexts.txt --
+hash: f49cfa3b39a9ab1964e8604ba5468a72
+
+-- PaperFieldsOfStudy.txt --
+hash: 3f72be44325b44feb634217c47c82cb4
+
+-- PaperLanguages.txt --
+hash: f2d77a1513d13550e403b11ec29d773a
+

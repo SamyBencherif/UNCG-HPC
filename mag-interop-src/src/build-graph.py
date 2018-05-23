@@ -66,13 +66,36 @@ class NetworkBuilder:
 
     def __init__(self):
         self.resetFileHandles()
+        self.prevRow = PaperAuthorAffiliations(self.PAA.readline())
+        self.paper = [self.prevRow]
+        self.network = networkx.Graph()
 
-    def applyNextPaper(self):
-        self.currPaper = PaperAuthorAffiliations(self.PAA.readline())
+    # Assuming PAA linearity, creates graph in O(n) time.
+    # See tests/PAA_linearity.py
+    def applyNextRow(self):
+        self.curRow = PaperAuthorAffiliations(self.PAA.readline())
 
-        # Assume linearity, create graph in linear time.
-        # see POA if needed, but write a no distribution algorithm first
-        # create some polling options
+        if self.curRow == self.prevRow:
+            self.paper.append(self.curRow)
+        else:
+            # here self.paper presumably contains all the rows related to a paper
+            for row1 in self.paper:
+                for row2 in self.paper:
+
+                    affiliation1 = row1.affiliationID
+                    affiliation2 = row2.affiliationID
+
+                    self.network.add_node(affiliation1)
+                    self.network.add_node(affiliation2)
+
+                    self.network.add_edge(affiliation1, affiliation2)
+
+            # self.curRow is pointing at the start of the next paper
+            self.paper = [self.curRow]
+
+
+
+        # then create some polling options
             # 1. Detailed file / network statistics in realtime-stats.txt
                 # Make sure to be indicative of what happened so far, and how much more needs to be done (eta)
             # 2. Maintain a visual representation of the graph in realtime
